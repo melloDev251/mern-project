@@ -1,18 +1,27 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UidContext } from "../AppContext";
+import { useDispatch } from "react-redux";
+import { deleteComment, editComment } from "../../actions/post.actions";
 
 const EditDeleteComments = ({ comment, postId }) => {
   const [isAuthor, setIsAuthor] = useState(false);
   const [edit, setEdit] = useState(false);
   const [text, setText] = useState("");
   const uid = useContext(UidContext);
+  const dispatch = useDispatch();
 
-  const handleEdit = (e) => {
-      e.preventDefault()
+  const handleEdit = async (e) => {
+    e.preventDefault();
 
-      if(text) {
-          
-      }
+    if (text) {
+      await dispatch(editComment(postId, comment._id, text));
+      setText("");
+      setEdit(false);
+    }
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteComment(postId, comment._id));
   };
 
   useEffect(() => {
@@ -44,7 +53,18 @@ const EditDeleteComments = ({ comment, postId }) => {
             defaultValue={comment.text}
           />
           <br />
-          <input type="submit" value="valider modification"  />
+          <div className="btn">
+            <span
+              onClick={() => {
+                if (window.confirm("Voulez vous supprimer ce commentaire ?")) {
+                  handleDelete();
+                }
+              }}
+            >
+              <img src="./img/icons/trash.svg" alt="delete-comment" />
+            </span>
+            <input type="submit" value="valider modification" />
+          </div>
         </form>
       )}
     </div>
