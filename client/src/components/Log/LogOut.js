@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import cookie from "js-cookie";
+import ReactTooltip from "react-tooltip";
 
 const LogOut = () => {
   const removeCookie = (key) => {
@@ -27,7 +28,17 @@ const LogOut = () => {
   return (
     <>
       <li onClick={logout}>
-        <img src="./img/icons/logout.svg" alt="logout" />
+        <img src="./img/icons/logout.svg" alt="logout" data-tip="Se déconnecter" />
+        <ReactTooltip
+              place="bottom"
+              type="dark"
+              textColor="dark"
+              effect="float"
+              className="tools"
+              backgroundColor="white"
+              borderColor="black"
+              border="5px true"
+            />
       </li>
     </>
   );
