@@ -51,6 +51,7 @@ const EditDeleteComments = ({ comment, postId }) => {
             name="text"
             onChange={(e) => setText(e.target.value)}
             defaultValue={comment.text}
+            autoComplete="off"
           />
           <br />
           <div className="btn">
