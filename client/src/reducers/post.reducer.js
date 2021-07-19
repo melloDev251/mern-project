@@ -10,7 +10,7 @@ import {
 
 const initialState = {};
 
-export default function userReducer(state = initialState, action) {
+export default function postReducer(state = initialState, action) {
   switch (action.type) {
     case GET_POSTS:
       return action.payload;

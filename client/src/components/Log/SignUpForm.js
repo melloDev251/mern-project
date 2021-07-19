@@ -45,7 +45,7 @@ const SignUpForm = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data.errors) {
             pseudoError.innerHTML = res.data.errors.pseudo;
             emailError.innerHTML = res.data.errors.email;
