@@ -13,6 +13,7 @@ const FriendsHint = () => {
   useEffect(() => {
     const notFriendList = () => {
       let array = [];
+      // eslint-disable-next-line array-callback-return
       usersData.map((user) => {
         if (
           user._id !== userData._id &&

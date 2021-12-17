@@ -49,7 +49,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// jouer la fonction avant d'enregistrer dans l'affichage: 'block',
+// jouer la fonction avant d'enregistrer dans l'affichage: 'block'
+// avant d'avoir faire le save dans base de donnée, je veut que tu crypte le mdp
 userSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);

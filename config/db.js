@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 mongoose
   .connect(
@@ -14,5 +14,4 @@ mongoose
     }
   )
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("Failed to connect with MongoDB", err)); 
-
+  .catch((err) => console.log("Failed to connect with MongoDB", err));

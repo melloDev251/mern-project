@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema(
   {
     posterId: {
       type: String,
-      required: true
+      required: true,
     },
     message: {
       type: String,
@@ -28,7 +28,7 @@ const postSchema = new mongoose.Schema(
           commenterPseudo: String,
           text: String,
           timestamp: Number,
-        }
+        },
       ],
       required: true,
     },
